@@ -20,10 +20,31 @@
     - Receive updated request structure
     - Create unique folder for each user & saved images by filename
 
+9 Feb 2025:
+ - Backend server startup
+
+ 23 Feb 2025:
+ - Frontend
+    - Add questionnaires
+    - Size checks
+    - Email validation
+    - Client side validation that all entered fields are filled in
+    - General refactoring with reusable checks
+    - Verified requests structure is as intended
+- Backend
+    - Storing directories based on users email and datetime
+    - Image checks after saving successful - Verification of encoding steps in frontend and decoding in backend
+    - Supports sending verification of email for gmail users (tbd if used at the end)
+
+
+
+
+
 
 ToDo
+- Allow diselecting photos
+- Unresponived page in case of server down
 - datamodels
 - testing of encoding steps
-- multiple post requests served (i.e., multiple images) -> single or multiple request
-- check uniqueness of uploaded image (w/ shape info?) -> done by 
-- validation (security checks)
+- encrypt images - check https
+- more advanced security checks - sanitize file content validation (security checks)

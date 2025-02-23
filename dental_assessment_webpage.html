@@ -11,56 +11,156 @@
 
 
   <style>
-    item-list {
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f7fc;
+      color: #333;
       display: flex;
-      align-items: flex-start;
       flex-direction: column;
-    }
-
-    item {
-      border-color: black;
-      display: flex;
+      justify-content: center;
       align-items: center;
-      height: 60px;
-
+      margin: 0;
+      margin-top: 40px;
+      gap: 20px;
     }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      gap: 20px;
+    }
+
+
 
     .item-el {
       height: 50px;
+    }
 
+    .btn {
+      display: inline-block;
+      background-color: #f4f7fc;
+      color: #1c1b24;
+      padding: 15px 30px;
+      border-radius: 5px;
+      font-size: 15px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
+    .btn:hover {
+      background-color: #1c1b24;
+      color: white;
+      content: 'You hovered over the button!';
+
+    }
+
+    .btn:disabled {
+      cursor: not-allowed;
+
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    .input-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+
+    }
+
+    .email {
+      font-family: 'Poppins', sans-serif;
+      padding: 10px 20px;
+      color: rgb(20, 20, 20);
+      border: solid rgb(173, 170, 164);
+      border-width: 0.1cap;
+      border-radius: 4px;
+    }
+
+    .preview {
+      display: flex;
+      justify-content: center;
     }
   </style>
 </head>
 
 <body>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <h1>Dental Self-assessment</h1>
-
-  <div style="border: solid black;">Upload photo<br>
-
-    <form>
-
-      <input id="teeth-photos" type="file" placeholder="teeth" accept="images/png, image/jpeg" multiple>
+  <script src="https://unpkg.com/axios@1.7.9/dist/axios.min.js"></script>
+  <div class="container">
+    <h1>Dental Self-assessment</h1>
 
 
-      <div class="preview" style="display: flex; flex-direction: column; align-items: flex-start;">
+    <form class="input-form">
+      <label for="teeth-photos" class="btn">Upload your images</label>
+      <input id="teeth-photos" class="file-input" type="file" placeholder="teeth" name="images[]"
+        accept="images/png, image/jpeg" multiple>
+
+
+      <div id="questionnaire" style="display: flex; gap: 20px;">
+        <div id="question" style="display: flex; flex-direction: column; gap: 20px; flex: 1;text-align: right;">
+          <label>Do you currently experience pain?</label>
+          <label>Last time you were at the dentist?</label>
+        </div>
+
+
+        <div id="answers" style="display: flex; flex: 1;">
+          <div id="left_side" style="display: flex; flex-direction: column; text-align: left; gap: 20px;">
+            <div>
+              <input id="pain" class="pain_checkbox" type="radio" name="pain" value="yes">Yes
+            </div>
+            <div>
+              <input id="frequency" type="radio" name="freq" value="6months"> In the last 6 months
+            </div>
+          </div>
+
+          <div id="right_side" style="display: flex; flex-direction: column; text-align: left; gap: 20px;">
+            <div>
+              <input id="pain" class="pain_checkbox" type="radio" name="pain" value="no">No
+            </div>
+            <div>
+              <input id="frequency" type="radio" name="freq" value="1year"> Almost a year ago or longer
+            </div>
+          </div>
+
+        </div>
+
+
       </div>
 
-      <input id="email" type="email" placeholder="Enter your email">
 
-      <br>
-      <button type="button" id="submit" disabled>Submit</button>
-      Please upload a photo of your teeth showing clearly where you think there is a problem
+
+      <div style="display: flex; gap: 5px; align-items:baseline;">
+        <label>Enter your email to receive your results</label>
+        <input id="email" class="email" type="email" placeholder="e.g., john@gmail.com">
+        </label>
+      </div>
+
+
+      <button type="button" id="submit" class="btn" disabled>Submit</button>
+
     </form>
-
+    <div class="preview"></div>
 
   </div>
+
 
   <div style="position: fixed; bottom: 10px; left: 5px; ">Disclaimer: The uploaded photos may be used to improve the
     accuracy of the test. </div>
 
 
-
+  </div>
 
 </body>
 <script src='main.js'></script>
