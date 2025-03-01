@@ -1,4 +1,4 @@
-Dental health assessment
+<b>Dental health assessment<b>
 
 - Upload photo
 - If quality check is passed, photo is processed using AI.
@@ -25,3 +25,7 @@ as email and the uploaded image data.
 
 - AI-based assessment. The AI-models have been trained based on dental images annotated by clinical experts. The uploaded images are processed to determine the dental health of the user.
 A report is sent to the user's email.
+
+
+
+Getting started
