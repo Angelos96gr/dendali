@@ -23,8 +23,8 @@
 9 Feb 2025:
  - Backend server startup
 
- 23 Feb 2025:
- - Frontend
+23 Feb 2025:
+- Frontend
     - Add questionnaires
     - Size checks
     - Email validation
@@ -36,6 +36,10 @@
     - Image checks after saving successful - Verification of encoding steps in frontend and decoding in backend
     - Supports sending verification of email for gmail users (tbd if used at the end)
 
+01 March 2025:
+- Backend
+    - Email communication (for sending report results) with environment variables for email, pwd
+    - Data validation via BaseModel
 
 
 
@@ -44,7 +48,7 @@
 ToDo
 - Allow diselecting photos
 - Unresponived page in case of server down
-- datamodels
-- testing of encoding steps
 - encrypt images - check https
+
 - more advanced security checks - sanitize file content validation (security checks)
+- communicate progress of inference -> show spinner  progress bar

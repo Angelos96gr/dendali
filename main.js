@@ -17,17 +17,22 @@ const SERVERURL = "http://localhost:8000"
 
 
 function arrayBufferToBase64(arrBuffer) {
+  // Base64 encoding involces binary input and "Base64 text" output
+  // which can be sent as part of a json content-type request
+
 
   //convert to uint8 since arrayBuffer is generic binary buffer
   const uint8Buffer = new Uint8Array(arrBuffer)
 
-  //convert each byte to string from specified utf-16 code units
+  //convert each byte to string (btoa in the browser needs this step)
   let binary = '';
-
   uint8Buffer.forEach((byte) => { binary += String.fromCharCode(byte) });
 
+
   //craetes a Base64-encoded ASCII string from binary string (= string whose characters are treated as binary data)
-  return window.btoa(binary)
+
+  const base64array = window.btoa(binary)
+  return base64array
 
 }
 
@@ -45,14 +50,15 @@ class ImagesCollection {
 
 
     for (let file of this.imageList) {
-      let arrBuffer = await file.arrayBuffer()
+      let arrBuffer = await file.arrayBuffer() // generic raw binary data
       /*
       ArrayBuffer is not a JSON-compatible structure: JSON itself cannot directly serialize ArrayBuffer (or binary data). 
-      Binary data needs to be either encoded (e.g., with Base64 encoding) or transmitted as part of a multipart form (multipart/form-data).
+      Binary data needs to be either encoded (e.g., with Base64 encoding) if attached to json type request with other non-binary data
+      or transmitted as part of a multipart form (multipart/form-data).
       */
       this.imageBytes.push(arrayBufferToBase64(arrBuffer))
     }
-    return this.imageBytes 
+    return this.imageBytes
   }
 
 
@@ -65,7 +71,7 @@ class ImagesCollection {
 
   }
 
-  addImage(image){
+  addImage(image) {
 
     return this.imageList.push(image)
   }
@@ -138,7 +144,6 @@ submit_button.addEventListener('click', async (event) => {
       });
 
       console.log(response.data);
-
 
     } catch (error) {
       console.error(error);

@@ -1,4 +1,4 @@
-Dental health assessment
+<b>Dental health assessment</b>
 
 - Upload photo
 - If quality check is passed, photo is processed using AI.
@@ -8,7 +8,7 @@ Dental health assessment
 
 
 
-Features
+<b>Features</b>
 
 - Client side validation- We check that the uploaded file(s):
     1. is image type (.jpeg, .png)
@@ -25,3 +25,21 @@ as email and the uploaded image data.
 
 - AI-based assessment. The AI-models have been trained based on dental images annotated by clinical experts. The uploaded images are processed to determine the dental health of the user.
 A report is sent to the user's email.
+
+
+
+<b>Getting</b>
+
+To work with this repo you need to:
+
+1. Setup the backend i.e., start the server. You can do that by running `./backend_startup.sh`. This activates the virtual environment, install dependencies and starts server
+
+2. Interact with frontend. You can start the the frontend using different ways. Easiest is probably with a left-clicking on <i>dental_assessment_webpage</i> and selecting 'Open with live server'
+
+
+For contributions:
+1. create a branch e.g., `git checkout -b <branch_name>` e.g., `git checkout-b j1/processing-pipeline`
+2. make any changes (note: any changes are automatically put into effect i.e., you dont need to take the frontend down and then up again). For changes in backend, you might need to restart backend server.
+3. add changes you want to keep `git add <filename>`
+4. commit changes with message `git commit -m <my_message>`
+5. create pull request `git push origin <branch_name>`
